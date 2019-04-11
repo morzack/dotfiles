@@ -48,7 +48,7 @@ bindsym Mod4+d exec dmenu_run -b
 # bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
 
 # lock screen
-bindsym Mod4+p exec i3lock -i resources/mount\ fuji\ desktop.png
+bindsym Mod4+p exec i3lock-fancy-dualmonitor -p
 
 # change focus
 bindsym Mod4+$left focus left
@@ -84,15 +84,15 @@ bindsym Mod4+v split v
 bindsym Mod4+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout toggle split
+# bindsym Mod4+s layout stacking
+# bindsym Mod4+w layout tabbed
+# bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
 bindsym Mod4+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod4+space focus mode_toggle
+# bindsym Mod4+space focus mode_toggle
 
 # focus the parent container
 bindsym Mod4+a focus parent
@@ -204,10 +204,24 @@ hide_edge_borders none
 exec xsetroot -solid "#202020"
 
 # set resolution
-exec xrandr --output VGA-1 --mode 1920x1080
+exec_always xrandr --output DP-3 --left-of DP-1
 
 # set background image
-exec_always feh --bg-center resources/mount\ fuji\ desktop.jpg
+exec_always feh --bg-fill resources/backgrounds/weeb/moss/87\ -\ NalQKX2.jpg
 
 # launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# redshift is important
+exec redshift -l 35.79:-78.78
+
+exec compton -b
+
+exec ibus-daemon
+
+# exec --no-startup-id fcitx -d
+
+exec python $HOME/resources/discord-cmus-status/main.py
+
+# scrot
+# bindsym Mod4+Shift+s exec "scrot -s"
