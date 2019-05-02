@@ -23,11 +23,13 @@ background = #8a000000
 ;background should be darker
 background-alt = #9a000000
 ;#2e3436
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = ${xrdb:color7:#dfdfdf}
+;foreground = #dfdfdf
 foreground-alt = #555
-primary = #458588
-secondary = #689d6a
+primary = ${xrdb:color2:#458588}
+;primary = #458588
+secondary = ${xrdb:color3:#689d6a}
+;secondary = #689d6a
 alert = #cc241d
 
 [bar/example]
@@ -37,7 +39,9 @@ height = 27
 ;offset-x = 25%
 ;offset-y = 25%
 radius = 0
-fixed-center = false
+fixed-center = true
+
+;bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -47,8 +51,8 @@ line-color = #f00
 
 ;border-left = 300
 ;border-right = 300
-border-size = 0
-border-color = #00000000
+;border-size = 0
+;border-color = #00000000
 
 padding-left = 0
 padding-right = 2
@@ -408,10 +412,10 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-1-exec = reboot
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
@@ -421,7 +425,7 @@ screenchange-reload = true
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
-;pseudo-transparency = false
+pseudo-transparency = false
 
 [global/wm]
 margin-top = 5
