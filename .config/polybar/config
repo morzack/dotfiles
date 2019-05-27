@@ -1,21 +1,3 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;==========================================================
-
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #8a000000
@@ -34,12 +16,12 @@ alert = #cc241d
 
 [bar/example]
 monitor = ${env:MONITOR:DP-1}
-width = 100%
+width = 100% ;99%
 height = 27
-;offset-x = 25%
-;offset-y = 25%
+;offset-x = 0.5%
+;offset-y = 0.5%
 radius = 0
-fixed-center = true
+fixed-center = false
 
 ;bottom = true
 
@@ -65,19 +47,20 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 ;font-3 = FontAwesome:style=Regular
 font-3 = Source Han Sans JP Medium:size=10;1
+font-4 = Noto Sans CJK JP:size=10
 
-modules-left = i3
+modules-left = i3 themer
 modules-center = cmus
 modules-right = pulseaudio cpu temperature date powermenu
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
+;tray-background = ${colors.background}
 
 ;wm-restack = bspwm
 ;wm-restack = i3
 
-;override-redirect = true
+override-redirect = false
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -440,3 +423,8 @@ interval = 1
 click-left = cmus-remote -n
 click-right = cmus-remote -r
 click-middle = cmus-remote -u
+
+[module/themer]
+type = custom/text
+content = NT
+click-left = python ~/resources/autotheme.py

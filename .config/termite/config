@@ -5,6 +5,7 @@ allow_bold = true
 clickable_url = true
 #dynamic_title = true
 font = Monaco 10
+padding = 2
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false

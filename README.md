@@ -1,22 +1,30 @@
-# Valis's Dotfiles
+# Dotfiles
 
-Ok so obviously these are going to be messy.
-deal with it, im too lazy to do anything about that.
-and yes, they _do_ look a lot similar to some examples but modified to be bad practices.
-"it works on my system"
-
-ok, so 
+So as the name would suggest this is where I'll be keeping a copy of my dotfiles so that configuration is as easy as cloning the repo.
+I'll probably also add in some kind of script to automatically configure everything as well.
 
 ## Dependencies
 
-guess ill just list what i can remember here
+These are all of the dependencies and applications that need to be installed/that I use.
+I'm assuming for the most part that the end user for this repo is using Arch Linux, because that's what I use (btw).
 
-- ibus?
-- compton
+### Applications
+
 - i3-gaps
-- i3-lock-fancy-dualmonitor
-- feh
-- redshift
-- move discord-cmus-status to correct spot `$HOME/resources/discord-cmus-status`
+- termite
+- rofi (dmenu replacement)
+- i3lock-fancy-dualmonitor
 - polybar
-- zsh
+- redshift
+- compton-tyrone-git
+- twmnd (notification system thing)
+- cmus
+- pywal
+- zsh/oh-my-zsh
+- w3m
+- pluggy/vim plugin manager
+
+### Fonts and more
+
+- DejaVu Sans Mono
+- Monaco

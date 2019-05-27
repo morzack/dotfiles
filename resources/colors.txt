@@ -1,8 +1,0 @@
-background : #2e3436
-black : #282828
-red : #cc241d
-yellow : #98971a
-orange : #d79921
-blue : #458588
-magenta : #b16286
-green : #689d6a
