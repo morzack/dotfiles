@@ -1,5 +1,7 @@
 # Dotfiles
 
+![screenshot](docs/scrot1.png)
+
 So as the name would suggest this is where I'll be keeping a copy of my dotfiles so that configuration is as easy as cloning the repo.
 I'll probably also add in some kind of script to automatically configure everything as well.
 
@@ -28,6 +30,7 @@ I'm assuming for the most part that the end user for this repo is using Arch Lin
 - zsh/oh-my-zsh
 - w3m
 - pluggy/vim plugin manager
+- escrotum
 
 ### Fonts and more
 

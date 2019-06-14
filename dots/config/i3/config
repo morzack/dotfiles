@@ -1,0 +1,231 @@
+# (a finally) fully custom i3 file
+# down witht the bloat!
+
+
+################# GENERAL #################
+
+# currently win key, configurable
+set $mod Mod4
+
+# safety fallback
+font pango:DejaVu Sans Mono 8
+
+# APP VARIABLES
+set $browser    firefox
+set $music      spotify
+set $term       termite
+
+# DIRECTORY VARIABLES
+set $resources ~/resources
+
+# RESIZE VARIABLES
+set $center move position center
+
+# FLOATING
+floating_modifier $mod
+
+# BORDER GORE
+default_border              none
+hide_edge_borders           none
+for_window [class="^.*"]    border pixel 0
+for_window [title="^.*"]    border pixel 0
+
+# APPLICATION BORDERS
+set $thick 24
+for_window [class="termite"]    border pixel $thick
+for_window [class="terminator"] border pixel $thick
+
+# FLOATING APPLICATIONS
+for_window [class="feh"]    floating enable
+for_window [class="wine"]   floating enable
+
+# GAPS
+set $inner 15
+set $outer 20
+
+gaps inner $inner
+gaps outer $outer
+
+# TERMINAL BINDING
+bindsym $mod+Return exec $term
+# $term -e will execute a thing in it
+
+# SCRATCHPAD
+# TL;DR a workspace that's hidden for common applications to go
+# but I don't undestand it so I'll refuse to deal with it
+
+# KILL
+bindsym $mod+Shift+q kill
+
+
+################# MOVEMENT #################
+
+set $left   h
+set $down   j
+set $up     k
+set $right  l
+
+# FOCUS
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Left   focus left
+bindsym $mod+Down   focus down
+bindsym $mod+Up     focus up
+bindsym $mod+Right  focus right
+
+bindsym $mod+z      focus output left
+
+# MOVE
+bindsym $mod+Shift+$left    move left
+bindsym $mod+Shift+$down    move down
+bindsym $mod+Shift+$up      move up
+bindsym $mod+Shift+$right   move right
+
+bindsym $mod+Shift+Left     move left
+bindsym $mod+Shift+Down     move down
+bindsym $mod+Shift+Up       move up
+bindsym $mod+Shift+Right    move right
+
+# RESIZE
+mode "resize" {
+    # change size bindings
+    bindsym $right   resize shrink width 5 px or 5 ppt
+    bindsym $down   resize grow height 5 px or 5 ppt
+    bindsym $up     resize shrink height 5 px or 5 ppt
+    bindsym $left  resize grow width 5 px or 5 ppt
+
+    bindsym Right    resize shrink width 5 px or 5 ppt
+    bindsym Down    resize grow height 5 px or 5 ppt
+    bindsym Up      resize shrink height 5 px or 5 ppt
+    bindsym Left   resize grow width 5 px or 5 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# SPLIT
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+# FULLSCREEN
+bindsym $mod+f fullscreen toggle
+
+# TOGGLE FLOATING
+bindsym $mod+Shift+space floating toggle; $center
+
+# MODE TOGGLE
+bindsym $mod+Shift+Tab focus mode_toggle
+
+# PAPER MODE
+bindsym $mod+Ctrl+space floating toggle; resize set 1000px 975px; $center
+
+# CENTER FLOATING
+bindsym $mod+c $center
+
+
+################# WORKSPACES #################
+# yay
+
+# WORKSPACES
+# (who really needs 10)
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
+
+# SWITCH TO WORKSPACE
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+# bindsym $mod+8 workspace $ws8
+# bindsym $mod+9 workspace $ws9
+# bindsym $mod+0 workspace $ws10
+
+# MOVE WINDOW TO WORKSPACE
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+# bindsym $mod+Shift+8 move container to workspace $ws8
+# bindsym $mod+Shift+9 move container to workspace $ws9
+# bindsym $mod+Shift+0 move container to workspace $ws10
+
+# MOVE WORKSPACE TO MONITOR
+bindsym $mod+m move workspace to output right
+
+
+################# COLORS/CONFIG #################
+
+# DEFAULT BACKGROUND
+exec xsetroot -solid "#202020"
+
+# SET MONITOR POSITIONS
+exec_always xrandr --output DP-3 --left-of DP-1
+
+# RUN CONFIGURATION SCRIPTS
+exec_always python $resources/autotheme.py
+
+# RUN DAEMONS
+exec compton        -b --config $HOME/.config/compton/compton.conf
+# exec redshift       -l 35.79:-78.78
+# exec ibus-daemon
+exec twmnd
+exec_always         --no-startup-id $HOME/.config/polybar/launch.sh
+# exec python         $HOME/resources/discord-cmus-status/main.py
+
+
+################# TOOLS #################
+
+# SCROT
+bindsym $mod+Shift+Print    exec bash $HOME/resources/scrotscripts/window.sh
+bindsym $mod+Print          exec bash $HOME/resources/scrotscripts/all.sh
+
+# MEDIA CONTROLS
+set $back       F10
+set $pause      F11
+set $forwards   F12
+
+set $voldown    F7
+set $volup      F8
+
+bindsym $mod+$back      exec playerctl previous
+bindsym $mod+$pause     exec playerctl play-pause
+bindsym $mod+$forwards  exec playerctl next
+
+# bindsym $mod+$voldown   exec pactl set-sink-volume 0 -5%
+# bindsym $mod+$volup     exec pactl set-sink-volume 0 +5%
+
+# please get volume stuff working :)
+
+# ROFI
+bindsym $mod+d  exec rofi -show run
+bindsym $mod+s  exec rofi -show window
+
+
+################# LAUNCH APPS #################
+
+bindsym $mod+n      exec $browser
+bindsym $mod+comma  exec $music
+bindsym $mod+period exec discord
+
+bindsym $mod+p      exec i3lock-fancy-dualmonitor -p
+# bindsym $mod+p      exec dm-tool lock

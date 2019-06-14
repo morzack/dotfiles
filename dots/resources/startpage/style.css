@@ -1,0 +1,50 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+body {
+    padding-top: 3%;
+    text-align: center;
+    background-color: #006462;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 50;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+footer {
+    color: #ffffff;
+    padding-top: 250px;
+}
+
+p {
+    margin-bottom: 1%;
+}
+
+.bodyclass {
+    font-size: 20px;
+}
+
+th {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3%;
+}
+
+a:visited {
+    color: #aaaaaa;
+}
+
+th, td {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
