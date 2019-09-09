@@ -1,11 +1,11 @@
 # (a finally) fully custom i3 file
 # down witht the bloat!
 
-
 ################# GENERAL #################
 
 # currently win key, configurable
 set $mod Mod4
+set $alt Mod1
 
 # safety fallback
 font pango:DejaVu Sans Mono 8
@@ -31,9 +31,9 @@ for_window [class="^.*"]    border pixel 0
 for_window [title="^.*"]    border pixel 0
 
 # APPLICATION BORDERS
-set $thick 24
-for_window [class="termite"]    border pixel $thick
-for_window [class="terminator"] border pixel $thick
+set $thick 0
+for_window [class="Termite"]    border pixel $thick
+for_window [class="Terminator"] border pixel $thick
 
 # FLOATING APPLICATIONS
 for_window [class="feh"]    floating enable
@@ -45,14 +45,18 @@ set $outer 20
 
 gaps inner $inner
 gaps outer $outer
+gaps top 45
+
+# ROUNDING
+# border_radius 5
 
 # TERMINAL BINDING
 bindsym $mod+Return exec $term
 # $term -e will execute a thing in it
 
 # SCRATCHPAD
-# TL;DR a workspace that's hidden for common applications to go
-# but I don't undestand it so I'll refuse to deal with it
+bindsym $mod+equal scratchpad show
+bindsym $mod+minus move scratchpad
 
 # KILL
 bindsym $mod+Shift+q kill
@@ -77,6 +81,7 @@ bindsym $mod+Up     focus up
 bindsym $mod+Right  focus right
 
 bindsym $mod+z      focus output left
+bindsym $mod+x      focus output right
 
 # MOVE
 bindsym $mod+Shift+$left    move left
@@ -123,7 +128,7 @@ bindsym $mod+Shift+space floating toggle; $center
 bindsym $mod+Shift+Tab focus mode_toggle
 
 # PAPER MODE
-bindsym $mod+Ctrl+space floating toggle; resize set 1000px 975px; $center
+bindsym $mod+Ctrl+space floating toggle; resize set 1000px 900px; $center
 
 # CENTER FLOATING
 bindsym $mod+c $center
@@ -141,9 +146,9 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-# set $ws8 "8"
-# set $ws9 "9"
-# set $ws10 "10"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # SWITCH TO WORKSPACE
 bindsym $mod+1 workspace $ws1
@@ -153,9 +158,9 @@ bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
-# bindsym $mod+8 workspace $ws8
-# bindsym $mod+9 workspace $ws9
-# bindsym $mod+0 workspace $ws10
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # MOVE WINDOW TO WORKSPACE
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -165,12 +170,13 @@ bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
-# bindsym $mod+Shift+8 move container to workspace $ws8
-# bindsym $mod+Shift+9 move container to workspace $ws9
-# bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # MOVE WORKSPACE TO MONITOR
 bindsym $mod+m move workspace to output right
+bindsym $mod+n move workspace to output left
 
 
 ################# COLORS/CONFIG #################
@@ -179,10 +185,12 @@ bindsym $mod+m move workspace to output right
 exec xsetroot -solid "#202020"
 
 # SET MONITOR POSITIONS
-exec_always xrandr --output DP-3 --left-of DP-1
+# exec_always xrandr --output DP-3 --left-of DP-1
+# exec_always xrandr --output HDMI-0 --right-of DP-1
 
 # RUN CONFIGURATION SCRIPTS
-exec_always python $resources/autotheme.py
+# exec_always python $resources/themer/autotheme.py
+exec_always wal -i ~/.background -b#111111
 
 # RUN DAEMONS
 exec compton        -b --config $HOME/.config/compton/compton.conf
@@ -190,14 +198,16 @@ exec compton        -b --config $HOME/.config/compton/compton.conf
 # exec ibus-daemon
 exec twmnd
 exec_always         --no-startup-id $HOME/.config/polybar/launch.sh
-# exec python         $HOME/resources/discord-cmus-status/main.py
+# exec python       $HOME/resources/discord-cmus-status/main.py
 
 
 ################# TOOLS #################
 
 # SCROT
-bindsym $mod+Shift+Print    exec bash $HOME/resources/scrotscripts/window.sh
-bindsym $mod+Print          exec bash $HOME/resources/scrotscripts/all.sh
+bindsym Print             exec bash $HOME/resources/scrotscripts/window.sh
+bindsym $mod+Print        exec bash $HOME/resources/scrotscripts/startgif.sh
+bindsym $mod+Shift+Print  exec bash $HOME/resources/scrotscripts/stopgif.sh
+bindsym $mod+Shift+i      exec imgur-screenshot
 
 # MEDIA CONTROLS
 set $back       F10
@@ -211,8 +221,8 @@ bindsym $mod+$back      exec playerctl previous
 bindsym $mod+$pause     exec playerctl play-pause
 bindsym $mod+$forwards  exec playerctl next
 
-# bindsym $mod+$voldown   exec pactl set-sink-volume 0 -5%
-# bindsym $mod+$volup     exec pactl set-sink-volume 0 +5%
+bindsym $mod+$voldown   exec pactl set-sink-volume 0 -5%
+bindsym $mod+$volup     exec pactl set-sink-volume 0 +5%
 
 # please get volume stuff working :)
 
@@ -223,9 +233,9 @@ bindsym $mod+s  exec rofi -show window
 
 ################# LAUNCH APPS #################
 
-bindsym $mod+n      exec $browser
+# bindsym $mod+n      exec $browser
 bindsym $mod+comma  exec $music
 bindsym $mod+period exec discord
 
-bindsym $mod+p      exec i3lock-fancy-dualmonitor -p
-# bindsym $mod+p      exec dm-tool lock
+# bindsym $mod+p      exec i3lock-fancy-dualmonitor -p
+bindsym $mod+p      exec dm-tool lock
