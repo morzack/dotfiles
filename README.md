@@ -1,6 +1,7 @@
 # Dotfiles
 
-![screenshot](docs/scrot1.png)
+![day](docs/day.png)
+![night](docs/night.png)
 
 So as the name would suggest this is where I'll be keeping a copy of my dotfiles so that configuration is as easy as cloning the repo.
 I'll probably also add in some kind of script to automatically configure everything as well.

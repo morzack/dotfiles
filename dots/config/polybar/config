@@ -31,18 +31,18 @@ monitor = ${env:MONITOR:}
 override-redirect = true
 
 ; keep the bar at the top of the screen
-bottom = false
+bottom = true
 
 ; make the center plugins stay at the center of the screen
 fixed-center = true
 
 ; make the bar span the entire screen
-width = 70%
+width = 96.45%
 ; and make it 27 pixels tall
 height = 27
 
 ; bar offsets should be based around the width and height
-offset-x = 15%
+offset-x = 34
 offset-y = 16
 
 ; set the foreground and background colors
@@ -58,8 +58,9 @@ line-size = 3
 line-color = #f00
 
 ; values applied to all borders (~~what does yukari think about this?~~)
-border-size = 3
-border-color = ${colors.border}
+border-size = 5
+; border-color = ${colors.border}
+border-color = ${colors.background}
 
 ; spaces to add to the beginning or end of the bar
 padding-left = 0
@@ -85,7 +86,7 @@ modules-center = cmus spotify
 modules-right = pulseaudio cpu wlan date powermenu
 
 ; separator between each modules
-separator = 
+separator = //
 
 ; opacity used for fade in/out
 ; not entirely sure what this does, probably worth looking into it
@@ -96,7 +97,8 @@ locale = en_US.UTF-8
 
 ; SYSTEM TRAY CONFIGURATION
 ; set the position and placement of the tray, if enabled
-tray-position = right
+; tray-position = right
+tray-position = none
 ; make sure that the modules on the bar are relative to the tray
 tray-detached = false
 ; max icon size for things on the tray

@@ -1,0 +1,16 @@
+{
+    "papers-path": "$HOME/resources/themer/backgrounds",
+    "day-start": 8,
+    "day-end": 20,
+    "time-enabled": true,
+    "day-dir": "/day",
+    "night-dir": "/night",
+
+    "day-papers-excluding": [
+        "20.jpg",
+        "48.jpg"
+    ],
+    "night-papers-excluding": [
+        "79.jpg"
+    ]
+}

@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'plasticboy/vim-markdown'
 Plug 'jlanzarotta/colorschemeexplorer'
 Plug 'airblade/vim-gitgutter'
@@ -38,7 +38,7 @@ inoremap kj <Esc>
 
 autocmd FileType markdown set spell spelllang=en_us
 
-let g:airline_theme='minimalist'
+let g:airline_theme='violet'
 let g:airline_powerline_fonts=1
 
 set conceallevel=2

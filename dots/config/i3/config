@@ -45,7 +45,8 @@ set $outer 20
 
 gaps inner $inner
 gaps outer $outer
-gaps top 45
+gaps bottom 60
+
 
 # ROUNDING
 # border_radius 5
@@ -184,18 +185,12 @@ bindsym $mod+n move workspace to output left
 # DEFAULT BACKGROUND
 exec xsetroot -solid "#202020"
 
-# SET MONITOR POSITIONS
-# exec_always xrandr --output DP-3 --left-of DP-1
-# exec_always xrandr --output HDMI-0 --right-of DP-1
-
 # RUN CONFIGURATION SCRIPTS
-# exec_always python $resources/themer/autotheme.py
-exec_always wal -i ~/.background -b#111111
+exec_always python $resources/themer/autotheme.py
 
 # RUN DAEMONS
 exec compton        -b --config $HOME/.config/compton/compton.conf
-# exec redshift       -l 35.79:-78.78
-# exec ibus-daemon
+exec ibus-daemon
 exec twmnd
 exec_always         --no-startup-id $HOME/.config/polybar/launch.sh
 # exec python       $HOME/resources/discord-cmus-status/main.py
@@ -207,7 +202,6 @@ exec_always         --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym Print             exec bash $HOME/resources/scrotscripts/window.sh
 bindsym $mod+Print        exec bash $HOME/resources/scrotscripts/startgif.sh
 bindsym $mod+Shift+Print  exec bash $HOME/resources/scrotscripts/stopgif.sh
-bindsym $mod+Shift+i      exec imgur-screenshot
 
 # MEDIA CONTROLS
 set $back       F10
@@ -237,5 +231,5 @@ bindsym $mod+s  exec rofi -show window
 bindsym $mod+comma  exec $music
 bindsym $mod+period exec discord
 
-# bindsym $mod+p      exec i3lock-fancy-dualmonitor -p
-bindsym $mod+p      exec dm-tool lock
+bindsym $mod+p      exec i3lock-fancy-dualmonitor -p
+# bindsym $mod+p      exec dm-tool lock
