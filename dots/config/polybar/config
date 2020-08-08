@@ -1,6 +1,6 @@
 ; vim:ft=dosini
 ; Valis's polybar configuration
-; Last edited: 27-06-2019
+; Last edited: 29-03-2020
 
 [colors]
 ; most of these colors should either be transparent or pulled from xrdb
@@ -25,24 +25,24 @@ alert = #cc241d
 
 [bar/main]
 ; the main bar that displays on top of my main monitor
-monitor = ${env:MONITOR:}
+monitor = ${env:MONITOR:HDMI-0}
 
 ; let i3 control the position of the bar
 override-redirect = true
 
 ; keep the bar at the top of the screen
-bottom = true
+bottom = false
 
 ; make the center plugins stay at the center of the screen
 fixed-center = true
 
 ; make the bar span the entire screen
-width = 96.45%
+width = 1500
 ; and make it 27 pixels tall
 height = 27
 
 ; bar offsets should be based around the width and height
-offset-x = 34
+offset-x = 530
 offset-y = 16
 
 ; set the foreground and background colors
@@ -58,7 +58,7 @@ line-size = 3
 line-color = #f00
 
 ; values applied to all borders (~~what does yukari think about this?~~)
-border-size = 5
+border-size = 4
 ; border-color = ${colors.border}
 border-color = ${colors.background}
 
@@ -72,13 +72,13 @@ module-margin-left = 1
 module-margin-right = 2
 
 ; fonts. simple enough
-font-0 = undefined:fontformat=truetype:size=9:antialias=true;0
+font-0 = undefined:fontformat=truetype:size=11:antialias=true;0
 ;font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=11:antialias=false;0
+font-2 = siji:pixelsize=11;1
 ; these fonts are important so that the weeb text shows up correctly
-font-3 = Source Han Sans JP Medium:size=10;1
-font-4 = Noto Sans CJK JP:size=10
+font-3 = Source Han Sans JP Medium:size=11;1
+font-4 = Noto Sans CJK JP:size=11
 
 ; and configure what modules go where
 modules-left = i3 themer
@@ -292,13 +292,14 @@ click-middle = cmus-remote -u
 type = custom/text
 content = NT
 click-left = python ~/resources/themer/autotheme.py
+click-right = python ~/resources/themer/wallpaperscraft-downloader.py
 
 [module/spotify]
 ; used to view spotify status
 type = custom/script
 interval = 1
 format = <label>
-exec = python ~/.config/polybar/spotify_status.py -f '{artist}: {song}'
+exec = python /home/reimu/.config/polybar/spotify_status.py -f '{artist}: {song}'
 click-left = playerctl next
 click-middle = playerctl play-pause
 click-right = playerctl previous
@@ -306,5 +307,12 @@ click-right = playerctl previous
 [module/info-eyestrain]
 ; used to follow the 20-20-20 rule and help reduce eye strain
 type = custom/script
-exec = ~/.config/polybar/info-eyestrain.sh
+exec = /home/reimu/.config/polybar/info-eyestrain.sh
 interval = 60
+
+[module/gensokyo-radio]
+; used to get gensokyo radio playing info
+type = custom/script
+interval = 60
+format = <label>
+exec = python ~/.config/polybar/gensokyo-stream.py --name --artist

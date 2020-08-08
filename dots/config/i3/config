@@ -36,17 +36,21 @@ for_window [class="Termite"]    border pixel $thick
 for_window [class="Terminator"] border pixel $thick
 
 # FLOATING APPLICATIONS
-for_window [class="feh"]    floating enable
-for_window [class="wine"]   floating enable
+for_window [class="feh"]      floating enable
+for_window [class="wine"]     floating enable
+for_window [class="Display"]   floating enable
+for_window [instance='lock'] floating enable; focus floating
 
 # GAPS
-set $inner 15
-set $outer 20
+set $inner 10
+set $outer 10
 
 gaps inner $inner
 gaps outer $outer
+gaps top 60
 gaps bottom 60
 
+# smart_gaps off
 
 # ROUNDING
 # border_radius 5
@@ -95,18 +99,20 @@ bindsym $mod+Shift+Down     move down
 bindsym $mod+Shift+Up       move up
 bindsym $mod+Shift+Right    move right
 
+set $resize 30
+
 # RESIZE
 mode "resize" {
     # change size bindings
-    bindsym $right   resize shrink width 5 px or 5 ppt
-    bindsym $down   resize grow height 5 px or 5 ppt
-    bindsym $up     resize shrink height 5 px or 5 ppt
-    bindsym $left  resize grow width 5 px or 5 ppt
+    bindsym $right   resize shrink width $resize px or $resize ppt
+    bindsym $down   resize grow height $resize px or $resize ppt
+    bindsym $up     resize shrink height $resize px or $resize ppt
+    bindsym $left  resize grow width $resize px or $resize ppt
 
-    bindsym Right    resize shrink width 5 px or 5 ppt
-    bindsym Down    resize grow height 5 px or 5 ppt
-    bindsym Up      resize shrink height 5 px or 5 ppt
-    bindsym Left   resize grow width 5 px or 5 ppt
+    bindsym Right    resize shrink width $resize px or $resize ppt
+    bindsym Down    resize grow height $resize px or $resize ppt
+    bindsym Up      resize shrink height $resize px or $resize ppt
+    bindsym Left   resize grow width $resize px or $resize ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -129,7 +135,7 @@ bindsym $mod+Shift+space floating toggle; $center
 bindsym $mod+Shift+Tab focus mode_toggle
 
 # PAPER MODE
-bindsym $mod+Ctrl+space floating toggle; resize set 1000px 900px; $center
+bindsym $mod+Ctrl+space floating toggle; resize set 1200px 1300px; $center
 
 # CENTER FLOATING
 bindsym $mod+c $center
@@ -185,14 +191,23 @@ bindsym $mod+n move workspace to output left
 # DEFAULT BACKGROUND
 exec xsetroot -solid "#202020"
 
+# SET MONITOR POSITIONS
+# exec_always xrandr --output DP-3 --left-of DP-1
+# exec_always xrandr --output HDMI-0 --right-of DP-1
+# exec_always bash $HOME/.screenlayout/2-monitor-nor-ver.sh
+# exec_always xrandr --output DP-1 --right-of HDMI-0
+exec_always xrandr --output HDMI-0 --primary --mode 2560x1440 --pos 1050x0 --rotate normal --rate 143.91  --left-of DP-1 --output DP-1 --mode 1920x1080 --pos 3610x0 --rotate normal 
+
 # RUN CONFIGURATION SCRIPTS
 exec_always python $resources/themer/autotheme.py
 
 # RUN DAEMONS
 exec compton        -b --config $HOME/.config/compton/compton.conf
-exec ibus-daemon
-exec twmnd
+exec redshift       -l 35.79:-78.78
+exec dunst
+# exec conky
 exec_always         --no-startup-id $HOME/.config/polybar/launch.sh
+exec unclutter
 # exec python       $HOME/resources/discord-cmus-status/main.py
 
 
@@ -202,6 +217,7 @@ exec_always         --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym Print             exec bash $HOME/resources/scrotscripts/window.sh
 bindsym $mod+Print        exec bash $HOME/resources/scrotscripts/startgif.sh
 bindsym $mod+Shift+Print  exec bash $HOME/resources/scrotscripts/stopgif.sh
+bindsym $mod+Shift+i      exec imgur-screenshot
 
 # MEDIA CONTROLS
 set $back       F10
@@ -231,5 +247,12 @@ bindsym $mod+s  exec rofi -show window
 bindsym $mod+comma  exec $music
 bindsym $mod+period exec discord
 
-bindsym $mod+p      exec i3lock-fancy-dualmonitor -p
+bindsym $mod+p      exec i3lock-fancy-multimonitor -p -n
 # bindsym $mod+p      exec dm-tool lock
+
+workspace $ws1 output HDMI-0
+# workspace $ws2 output DP-3
+workspace $ws2 output DP-1
+
+################# MAKE IBUS WORK ##############
+exec ibus-daemon -d

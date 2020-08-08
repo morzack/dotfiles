@@ -1,16 +1,38 @@
 {
-    "papers-path": "$HOME/resources/themer/backgrounds",
+    "papers-path": "/home/reimu/resources/themer/backgrounds",
     "day-start": 8,
-    "day-end": 20,
+    "day-end": 19,
     "time-enabled": true,
     "day-dir": "/day",
     "night-dir": "/night",
 
     "day-papers-excluding": [
         "20.jpg",
-        "48.jpg"
+        "48.jpg",
+				"6.jpg",
+				"7.jpg",
+				"12.jpg",
+				"37.jpg",
+				"83.jpg",
+				"87.jpg",
+				"89.jpg",
+				"apartment.png",
+				"ayaplane.png",
+				"forest.jpg",
+				"pixelwaterfall.png",
+				"pylonroad.jpg",
+				"river.png"
     ],
     "night-papers-excluding": [
-        "79.jpg"
+        "79.jpg",
+				"9.jpg",
+				"75.jpg",
+				"76.jpg",
+				"102.jpg",
+				"mount fuji desktop.jpg",
+				"nightskyline1.jpg",
+				"nightskyline2.jpg",
+				"nightskyline3.jpg",
+				"rain.jpg"
     ]
 }
