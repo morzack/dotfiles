@@ -1,9 +1,30 @@
-# dots
+# dotfiles
+
 dotfiles for my current linux setup
 
 ![demo](scrot.png)
 
-these are derived from an older configuration I had running, but cleaned up and made more... useful?
-at least they should run better universally.
+This repo contains scripts and the required resource files to quickly reproduce my working environment in a fresh Arch Linux installation.
 
-theming and such is generated thanks to [pywal](https://github.com/dylanaraps/pywal), without which doing anything color related would be pain.
+core packages:
+- i3wm
+- polybar
+- rofi
+- kitty
+- picom
+- dunst
+- oh-my-zsh
+
+It's assumed that some package manager aside from `pacman` (e.g. [yay](https://github.com/Jguer/yay)) has already been installed.
+(some packages used in this install exist in AUR).
+Additionally, the tooling here can attempt to install a nontrivial number of packages beyond the minimum needed to reproduce the setup.
+Keep this in mind. Ideally (this is a TODO) there will be some flag attached to any installation scripting that will select between a more minimal install and the full installation.
+
+background is [嵯峨 by Katann](https://www.pixiv.net/en/artworks/88127737)
+
+TODO add automatic installation scripts to drop dotfiles into place and handle setup.
+To get things working, manually, you need to:
+- update ~/.config/polybar/config to make the main bar point to the correct monitor and fit the screen
+- set up arandr to make an autolaunching display config
+- install oh-my-zsh, then move the zshrc to replace the autogen one
+
