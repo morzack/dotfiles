@@ -22,7 +22,19 @@ Keep this in mind. Ideally (this is a TODO) there will be some flag attached to 
 
 background is [嵯峨 by Katann](https://www.pixiv.net/en/artworks/88127737)
 
-TODO add automatic installation scripts to drop dotfiles into place and handle setup.
+
+## installation
+
+An install script `./install.sh` is provided.
+This script has two flags:
+
+```bash
+./install.sh c # installs config
+./install.sh p # installs packages
+
+./install.sh p c # does both
+```
+
 To get things working, manually, you need to:
 - update ~/.config/polybar/config to make the main bar point to the correct monitor and fit the screen
 - set up arandr to make an autolaunching display config
