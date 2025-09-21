@@ -29,3 +29,11 @@ set showmatch
 set hlsearch
 
 set nofoldenable
+
+call plug#begin()
+
+Plug 'dylanaraps/wal.vim'
+
+call plug#end()
+
+colorscheme wal

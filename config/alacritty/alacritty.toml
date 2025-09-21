@@ -1,0 +1,16 @@
+[general]
+import = [
+    "~/.cache/wal/colors-alacritty.toml"
+]
+
+
+[font]
+normal = {family="Miracode",style="Regular"}
+size=11
+
+[keyboard]
+bindings = [
+  { key = "Left",  mods = "Control",     chars = "\u001bB"   },
+  { key = "Right", mods = "Control",     chars = "\u001bF"   },
+  { key = "Back",  mods = "Control", chars = "\u001b\u007f"    },
+]
