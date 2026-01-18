@@ -78,15 +78,15 @@ set $resize 30
 
 mode "resize" {
     # change size bindings
-    bindsym $right   resize shrink width $resize px or $resize ppt
+    bindsym $left   resize shrink width $resize px or $resize ppt
     bindsym $down   resize grow height $resize px or $resize ppt
     bindsym $up     resize shrink height $resize px or $resize ppt
-    bindsym $left  resize grow width $resize px or $resize ppt
+    bindsym $right  resize grow width $resize px or $resize ppt
 
-    bindsym Right    resize shrink width $resize px or $resize ppt
+    bindsym Left    resize shrink width $resize px or $resize ppt
     bindsym Down    resize grow height $resize px or $resize ppt
     bindsym Up      resize shrink height $resize px or $resize ppt
-    bindsym Left   resize grow width $resize px or $resize ppt
+    bindsym Right   resize grow width $resize px or $resize ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -120,10 +120,10 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-workspace $ws1 output HDMI-A-1
+workspace $ws1 output HDMI-A-0
 workspace $ws2 output DisplayPort-0
 workspace $ws3 output DisplayPort-1
-workspace $ws4 output HDMI-A-0
+workspace $ws4 output HDMI-A-1
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -172,11 +172,11 @@ exec    unclutter
 bindsym $mod+d  exec rofi -show run
 bindsym $mod+s  exec rofi -show window
 # bindsym $mod+e  exec rofi -show emoji -modi emoji
-# bindsym $mod+e exec pcmanfm
-bindsym $mod+e exec thunar
+bindsym $mod+e exec pcmanfm
+# bindsym $mod+e exec thunar
 bindsym $mod+p exec --no-startup-id alacritty -e rmpc
 bindsym $mod+u exec --no-startup-id nvim-gtk $HOME/Seafile/My\ Library/obsidian/obby/01\ todo/randomworklog-late-2024.txt
-bindsym $mod+Shift+u exec --no-startup-id nvim-gtk $HOME/scratch.txt
+bindsym $mod+Shift+u exec --no-startup-id nvim-gtk $HOME/Seafile/My\ Library/obsidian/obby/01\ todo/scratch.txt
 bindsym $mod+Ctrl+p exec --no-startup-id $HOME/projects/pomotroid/target/release/pomotroid
 
 bindsym $mod+Shift+Ctrl+$alt+l exec --no-startup-id firefox linkedin.com
@@ -188,10 +188,14 @@ exec_always $HOME/.screenlayout/layout.sh
 bindsym $mod+Shift+s exec flameshot gui
 
 # change as desired
-set $paper $HOME/resources/backgrounds/134407547_p0.jpg
-# set $paper $HOME/resources/backgrounds/umaroad.jpg
+# set $paper $HOME/resources/backgrounds/134407547_p0.jpg
+set $paper $HOME/resources/backgrounds/umaroad.jpg
+# set $paper $HOME/resources/backgrounds/134902318_p0.jpg
+# set $paper $HOME/resources/backgrounds/FSCK0534.jpg
 exec_always wal -i $paper --saturate 1 --theme dkeg-amiox -b 202122 --fg eaeaea
 exec $HOME/resources/killclip.sh
+
+exec_always seafile-applet
 
 # exec_always --no-startup-id sleep 3 && $HOME/.config/polybar/launch.sh
 

@@ -5,8 +5,10 @@ import = [
 
 
 [font]
-normal = {family="Miracode",style="Regular"}
-size=11
+# normal = {family="Miracode",style="Regular"}
+# size=11
+normal = {family="Terminess Nerd Font Mono",style="Regular"}
+size=12
 
 [keyboard]
 bindings = [
