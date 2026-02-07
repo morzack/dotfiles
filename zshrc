@@ -5,7 +5,7 @@ else
   export EDITOR='vim'
 fi
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
 
 alias l="ls"
 HISTFILE=~/.histfile
@@ -31,3 +31,4 @@ source /usr/share/fzf/completion.zsh
 export ROCM_PATH=/opt/rocm
 export HSA_OVERRIDE_GFX_VERSION=11.0.0
 
+alias hx="helix"

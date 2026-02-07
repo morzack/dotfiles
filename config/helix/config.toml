@@ -1,0 +1,18 @@
+theme = "base16_default"
+
+[keys.insert]
+k = { j = "normal_mode" }
+
+[keys.normal]
+Z = { Z = ":write-quit", Q = ":quit!" }
+o = { w = ":write" }
+m = { r = ":sh make run", c = ":config-reload", b = ":sh make build" }
+
+[editor]
+cursorline = true
+lsp.display-inlay-hints = true
+line-number = "relative"
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+

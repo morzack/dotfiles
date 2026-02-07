@@ -20,7 +20,7 @@ for_window [class=".*"]      title_format "%title"
 title_align center
 
 for_window [class=".*"]      floating enable
-for_window [class="krita"] floating disable
+# for_window [class="krita"] floating disable
 for_window [class="firefox"] floating disable
 for_window [class="discord"] floating disable
 for_window [class="obsidian"] floating disable
@@ -177,7 +177,7 @@ bindsym $mod+e exec pcmanfm
 bindsym $mod+p exec --no-startup-id alacritty -e rmpc
 bindsym $mod+u exec --no-startup-id nvim-gtk $HOME/Seafile/My\ Library/obsidian/obby/01\ todo/randomworklog-late-2024.txt
 bindsym $mod+Shift+u exec --no-startup-id nvim-gtk $HOME/Seafile/My\ Library/obsidian/obby/01\ todo/scratch.txt
-bindsym $mod+Ctrl+p exec --no-startup-id $HOME/projects/pomotroid/target/release/pomotroid
+bindsym $mod+Ctrl+i exec --no-startup-id $HOME/projects/pomotroid/target/release/pomotroid
 
 bindsym $mod+Shift+Ctrl+$alt+l exec --no-startup-id firefox linkedin.com
 
@@ -189,11 +189,15 @@ bindsym $mod+Shift+s exec flameshot gui
 
 # change as desired
 # set $paper $HOME/resources/backgrounds/134407547_p0.jpg
-set $paper $HOME/resources/backgrounds/umaroad.jpg
+# set $paper $HOME/resources/backgrounds/umaroad.jpg
+set $paper $HOME/resources/backgrounds/saga.jpg
 # set $paper $HOME/resources/backgrounds/134902318_p0.jpg
 # set $paper $HOME/resources/backgrounds/FSCK0534.jpg
-exec_always wal -i $paper --saturate 1 --theme dkeg-amiox -b 202122 --fg eaeaea
+set $theme base16-tomorrow-night
+# set $theme dkeg-amiox
+exec_always wal -i $paper --saturate 1 --theme $theme -b 202122 --fg eaeaea
 exec $HOME/resources/killclip.sh
+exec sleep 3 && [ ! -s ~/.config/mpd/pid ] && mpd
 
 exec_always seafile-applet
 
