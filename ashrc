@@ -1,0 +1,38 @@
+export EDITOR=vim
+
+
+mkcd() { 
+	mkdir -p "$1" && cd "$1" 
+}
+
+ff() {
+	find . -iname "*$1*"
+}
+
+gr() {
+	grep -rIn --color=auto -- "$1" "${2:-.}"
+}
+
+serve() {
+	ip=$(ip route get 1.1.1.1 2>/dev/null | awk '{print $7; exit}')
+	[ -n "$ip" ] || ip=127.0.0.1
+	echo "Connect to: http://$ip:8000"
+	darkhttpd . --port 8000
+}
+
+cat() {
+	if [ "$#" -eq 1 ] && [ -f "$1" ] && [ -t 1 ]; then
+		case "$1" in
+			*.png|*.jpg|*.jpeg|*.gif|*.webp|*.bmp|*.avif)
+				identify -format '%f: %wx%h\n' "$1[0]"
+				chafa -f sixel --scale max -s 60x20 "$1"
+				return
+				;;
+		esac
+	fi
+	command cat "$@"
+}
+
+alias reload='. ~/.ashrc && echo "reloaded"'
+alias c='clear'
+alias cal='cal --color=auto -m'

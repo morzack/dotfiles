@@ -1,0 +1,5 @@
+#!/bin/sh
+
+dir="${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots"
+mkdir -p "$dir"
+grim -g "$(slurp)" "$dir/$(date +"%s_grim.png")"

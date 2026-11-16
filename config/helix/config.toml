@@ -6,7 +6,7 @@ k = { j = "normal_mode" }
 [keys.normal]
 Z = { Z = ":write-quit", Q = ":quit!" }
 o = { w = ":write" }
-m = { r = ":sh make run", c = ":config-reload", b = ":sh make build" }
+m = { r = ":sh make run", c = ":config-reload", b = ":sh make build", f = ":format", l = ":rl" }
 
 [editor]
 cursorline = true
@@ -15,4 +15,8 @@ line-number = "relative"
 
 [editor.inline-diagnostics]
 cursor-line = "hint"
+
+[editor.soft-wrap]
+wrap-indicator = ""
+enable = false
 

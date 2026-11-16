@@ -1,0 +1,8 @@
+# pipewire &
+# pipewire-pulse &
+# wireplumber &
+
+kanshi >/dev/null 2>&1 &
+# waybar --log-level off &
+# mako >/dev/null 2>&1 &
+systemctl -q --no-block --user start labwc-session.target

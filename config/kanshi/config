@@ -1,0 +1,15 @@
+# per-machine output layout: profiles only apply when these exact outputs are connected,
+# so this is a no-op elsewhere. edit for your monitors (`wlr-randr` lists them).
+
+profile three-monitors {
+    output "DP-2" mode 2560x1440@59.951 position 0,0 scale 1
+    output "HDMI-A-1" mode 2560x1440@143.912 position 2560,0 scale 1
+    output "DP-1" mode 1920x1080@60.000 position 2880,1440 scale 1
+}
+
+profile four-monitors {
+    output "DP-2" mode 2560x1440@59.951 position 0,0 scale 1
+    output "HDMI-A-1" mode 2560x1440@143.912 position 2560,0 scale 1
+    output "DP-1" mode 1920x1080@60.000 position 2880,1440 scale 1
+    output "HDMI-A-2" enable
+}

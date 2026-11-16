@@ -1,0 +1,25 @@
+#!/bin/sh
+# role -> implementation. Phase 2 = edit lines here only.
+case "$1" in
+  launcher)      exec dms ipc call spotlight toggle ;;
+  clipboard)     exec dms ipc call clipboard toggle ;;
+  notifications) exec dms ipc call notifications toggle ;;
+  settings)      exec dms ipc call settings focusOrToggle ;;
+  taskmgr)       exec dms ipc call processlist focusOrToggle ;;
+  power)         exec dms ipc call powermenu toggle ;;
+  wallpaper)     exec dms ipc call dankdash wallpaper ;;
+  lock)          exec dms ipc call lock lock ;;
+  night)         exec dms ipc call night toggle ;;
+  vol-up)        exec dms ipc call audio increment 3 ;;
+  vol-down)      exec dms ipc call audio decrement 3 ;;
+  vol-mute)      exec dms ipc call audio mute ;;
+  mic-mute)      exec dms ipc call mic mute ;;
+  bright-up)     exec dms ipc call brightness increment 5 "" ;;
+  bright-down)   exec dms ipc call brightness decrement 5 "" ;;
+  play-pause)    exec dms ipc call mpris playPause ;;
+  next)          exec dms ipc call mpris next ;;
+  prev)          exec dms ipc call mpris previous ;;
+  shot)          exec dms screenshot ;;
+  shot-full)     exec dms screenshot full ;;
+  *) echo "desk: unknown role '$1'" >&2; exit 2 ;;
+esac

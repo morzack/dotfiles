@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<labwc_config>
+
+  <theme>
+    <cornerRadius>0</cornerRadius>
+    <dropShadows>yes</dropShadows>
+  </theme>
+
+  <core>
+    <gap>12</gap>
+  </core>
+
+  <windowSwitcher>
+    <osd style="classic" />
+    <fields>
+      <field content="custom" format="%15i" width="100%" />
+    </fields>
+  </windowSwitcher>
+
+  <windowRules>
+    <windowRule identifier="*">
+      <action name="SetDecorations" decorations="border"/>
+    </windowRule>
+    <windowRule title="swclock" skipWindowSwitcher="yes">
+      <action name="MoveTo">
+        <x>12</x>
+        <y>12</y>
+      </action>
+      <action name="ToggleOmnipresent" />
+      <action name="ToggleAlwaysOnBottom"/>
+    </windowRule>
+  </windowRules>
+
+  <desktops>
+    <number>1</number>
+    <names>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+    </names>
+    </desktops>
+
+    <libinput>
+      <device category="default">
+        <accelProfile>flat</accelProfile>
+        <pointerSpeed>-0.3</pointerSpeed>
+      </device>
+    </libinput>
+
+  <keyboard>
+      <default/>
+
+
+<keybind key="W-f">
+  <action name="ToggleFullscreen"/>
+</keybind>
+
+    <!-- Terminal -->
+    <keybind key="W-Return">
+      <action name="Execute" command="alacritty"/>
+  </keybind>
+
+
+<keybind key="A-F4">
+  <action name="None"/>
+</keybind>
+<keybind key="W-S-q">
+  <action name="Close"/>
+</keybind>
+
+    <!-- Lock screen -->
+    <keybind key="W-S-x">
+      <action name="Execute" command="swaylock -f"/>
+    </keybind>
+
+    <!-- Volume down -->
+    <keybind key="F8">
+      <action name="Execute"
+              command="pactl set-sink-volume @DEFAULT_SINK@ -5%"/>
+    </keybind>
+
+    <!-- Volume up -->
+    <keybind key="F9">
+      <action name="Execute"
+              command="pactl set-sink-volume @DEFAULT_SINK@ +5%"/>
+    </keybind>
+
+    <!-- Screenshot -->
+
+<keybind key="W-S-s">
+  <action name="Execute" command="screenshot"/>
+</keybind>
+
+    <!-- Hide cursor -->
+    <keybind key="A-W-h">
+      <action name="HideCursor"/>
+    </keybind>
+
+    <!-- Swclock -->
+    <keybind key="F2">
+      <action name="Execute" command="swclock"/>
+    </keybind>
+    
+    <!-- Kill swclock -->
+    <keybind key="C-F2">
+      <action name="Execute" command="pkill swclock"/>
+    </keybind>
+
+
+    <!-- Clear default arrow binds -->
+<keybind key="W-Left"><action name="None"/></keybind>
+<keybind key="W-Right"><action name="None"/></keybind>
+<keybind key="W-Up"><action name="None"/></keybind>
+<keybind key="W-Down"><action name="None"/></keybind>
+<keybind key="A-Left"><action name="None"/></keybind>
+<keybind key="A-Right"><action name="None"/></keybind>
+<keybind key="A-Up"><action name="None"/></keybind>
+<keybind key="A-Down"><action name="None"/></keybind>
+
+<!-- Snap to edges (vim directions) -->
+<keybind key="W-h">
+  <action name="SnapToEdge" direction="left"/>
+</keybind>
+<keybind key="W-j">
+  <action name="SnapToEdge" direction="down"/>
+</keybind>
+<keybind key="W-k">
+  <action name="SnapToEdge" direction="up"/>
+</keybind>
+<keybind key="W-l">
+  <action name="SnapToEdge" direction="right"/>
+</keybind>
+
+<!-- Move window to edge (vim directions) -->
+<keybind key="A-h">
+  <action name="MoveToEdge" direction="left"/>
+</keybind>
+<keybind key="A-j">
+  <action name="MoveToEdge" direction="down"/>
+</keybind>
+<keybind key="A-k">
+  <action name="MoveToEdge" direction="up"/>
+</keybind>
+<keybind key="A-l">
+  <action name="MoveToEdge" direction="right"/>
+</keybind>
+
+<!-- Workspace switching (replacing S-W-arrow) -->
+<keybind key="S-W-h">
+  <action name="GoToDesktop" to="left"/>
+</keybind>
+<keybind key="S-W-l">
+  <action name="GoToDesktop" to="right"/>
+</keybind>
+
+<keybind key="W-d">
+  <action name="Execute" command="dms ipc call spotlight toggle"/>
+</keybind>
+
+  </keyboard>
+
+  <tablet rotate="0">
+  <map button="Tip" to="Left"/>
+  <map button="Stylus" to="Right"/>
+  <map button="Stylus2" to="Middle"/>
+</tablet>
+
+<mouse>
+  <default/>
+  <context name="Root">
+    <mousebind button="Left" action="Press">
+      <action name="None"/>
+    </mousebind>
+  </context>
+</mouse>
+
+</labwc_config>
+
