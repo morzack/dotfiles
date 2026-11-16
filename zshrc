@@ -77,3 +77,6 @@ key[Control-Right]="${terminfo[kRIT5]}"
 
 [[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
 [[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
+
+# machine-specific config (work tooling, local paths); not tracked in the repo
+[[ -r ~/.zshrc.local ]] && source ~/.zshrc.local

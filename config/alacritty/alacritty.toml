@@ -2,6 +2,7 @@
 import = [
   "~/.config/alacritty/dank-theme.toml"
 ]
+live_config_reload = true
 
 [window]
 decorations = "None"
@@ -9,7 +10,11 @@ padding = { x = 12, y = 12 }
 opacity = 1.0
 
 [scrolling]
-history = 3023
+history = 99999
+
+[font]
+normal = { family = "IoskeleyMono", style = "Regular" }
+size = 12
 
 [cursor]
 style = { shape = "Block", blinking = "On" }

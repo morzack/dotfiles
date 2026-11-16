@@ -1,6 +1,6 @@
 # packages needed by the configs in this repo.
 # lines starting with '#' are ignored by install.sh.
-# assumes an AUR helper (yay) is already installed; everything here is in the official repos.
+# assumes an AUR helper (yay) is already installed; everything here is in the official repos except where noted (AUR).
 
 # base
 base-devel
@@ -52,3 +52,5 @@ imagemagick
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+# alacritty font (AUR)
+ttf-ioskeley-mono-unhinted

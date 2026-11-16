@@ -15,7 +15,7 @@ core packages:
 - helix / vim
 - zsh
 
-It's assumed that an AUR helper (e.g. [yay](https://github.com/Jguer/yay)) has already been installed, though everything in `packages.txt` is currently in the official repos.
+It's assumed that an AUR helper (e.g. [yay](https://github.com/Jguer/yay)) has already been installed, though nearly everything in `packages.txt` is in the official repos (AUR exceptions are marked).
 `packages.txt` only lists what the configs here actually need (compositor, shell, login, audio, terminal/editors, a base font set); machine-specific packages (microcode, GPU drivers, kernels) and standalone applications are left to you.
 
 background in the screenshot is [嵯峨 by Katann](https://www.pixiv.net/en/artworks/88127737)
@@ -55,4 +55,5 @@ It also checks packages, greetd, the dms service hook, that configs parse, and t
 To get things working, manually, you need to:
 - edit `~/.config/kanshi/config` to match your outputs
 - optionally pin the tablet to an output with `mapToOutput` in `labwc/rc.xml`
+- put machine-specific shell config (local paths, work tooling) in `~/.zshrc.local`; `~/.zshrc` sources it if present
 - pick a wallpaper in dms (matugen regenerates `alacritty/dank-theme.toml` from it)
